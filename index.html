@@ -209,7 +209,8 @@
             gap: 0.75rem; /* Balanced spacing between boxes */
             padding: 1.5rem 0; 
             overflow-y: auto; 
-            max-width: 850px; /* Optimal width for the grid */
+            max-width: 95%; /* Increased from 850px to use more screen width */
+            width: 100%;
             margin: 0 auto; /* Center the grid */
         }
         .result-box {
@@ -218,7 +219,7 @@
             align-items: center;
             justify-content: center;
             aspect-ratio: 1 / 1; /* Keep boxes square */
-            padding: 0.35rem; /* Balanced padding */
+            padding: 0.5rem; /* Increased padding for better content display */
             border-radius: 0.375rem;
             color: white; 
             text-align: center;
@@ -226,13 +227,12 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 0.4rem;
-            /* Reset size modifications */
             width: 100%;
             height: auto;
-            transform: none;
+            min-width: 3.5rem; /* Ensure minimum width for boxes */
         }
         .result-box:hover {
-            transform: translateY(-2px); /* Simple hover effect */
+            transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .result-box-correct {
@@ -248,12 +248,12 @@
             outline-offset: 2px;
         }
         .result-box .time-spent {
-            font-size: 0.95rem; /* Balanced font size */
+            font-size: 1.1rem; /* Slightly larger for better visibility */
             font-weight: 600; 
             line-height: 1.1;
         }
         .question-num-label {
-            font-size: 0.7rem; /* Balanced font size */
+            font-size: 0.8rem; /* Slightly larger for better readability */
             color: #374151;
             text-align: center;
             width: 100%;
@@ -261,18 +261,24 @@
         }
         
         /* Media queries for responsive grid */
+        @media (max-width: 992px) {
+            #results-grid-container {
+                grid-template-columns: repeat(8, 1fr);
+                max-width: 100%;
+            }
+        }
         @media (max-width: 768px) {
             #results-grid-container {
                 grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
                 grid-template-rows: repeat(4, 1fr); /* 4 rows on medium screens */
-                max-width: 95%;
+                max-width: 100%;
                 gap: 0.5rem;
             }
         }
         @media (max-width: 480px) {
             #results-grid-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
-                grid-template-rows: repeat(8, 1fr); /* 8 rows on small screens */
+                grid-template-columns: repeat(4, 1fr); /* Changed from 2 to 4 columns */
+                grid-template-rows: repeat(4, 1fr); /* Changed from 8 to 4 rows */
                 gap: 0.4rem;
             }
             .result-box .time-spent {
