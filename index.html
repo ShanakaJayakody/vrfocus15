@@ -26,7 +26,7 @@
             flex-direction: column;
             height: calc(100vh - 2rem); 
             width: 100%;
-            background-color: #ffffff; /* Already white, that's good */
+            background-color: #ffffff; 
             border: 1px solid #d1d5db; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             border-radius: 0.375rem; 
@@ -114,7 +114,7 @@
             padding: 1rem;
             border: 1px solid #e5e7eb;
             border-radius: 0.375rem;
-            background-color: #ffffff; /* UPDATED: Passage column background to white */
+            background-color: #ffffff; 
             height: 100%; 
         }
         .question-column {
@@ -123,7 +123,7 @@
              padding: 1rem;
              border: 1px solid #e5e7eb;
              border-radius: 0.375rem;
-             background-color: #ffffff; /* UPDATED: Question column background to white */
+             background-color: #ffffff; 
              height: 100%; 
              position: relative; 
         }
@@ -177,8 +177,8 @@
             cursor: pointer;
             transition: background-color 0.2s ease, border-color 0.2s ease;
             background-color: #ffffff; 
-            color: #111827; /* UPDATED: Option text to dark gray */
-            font-size: 1rem;   /* UPDATED: Option text size to base */
+            color: #111827; 
+            font-size: 1rem;   
         }
         .option-label:hover:not(.selected-answer) { 
             background-color: #f3f4f6; 
@@ -204,24 +204,24 @@
 
         #results-grid-container { 
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); 
-            gap: 1rem; 
+            grid-template-columns: repeat(8, 1fr); /* UPDATED: Enforce 8 columns */
+            gap: 0.5rem; /* UPDATED: Adjusted gap */
             padding: 1rem 0; 
             overflow-y: auto; 
-            max-height: 30vh; 
+            /* max-height: 30vh; REMOVED: Allow grid to define its own height for 2 rows */
         }
         .result-box {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem 0.5rem; 
+            aspect-ratio: 1 / 1; /* UPDATED: Make boxes square */
+            padding: 0.25rem; /* UPDATED: Adjusted padding */
             border-radius: 0.375rem; 
-            color: white; /* Text on result boxes remains white for contrast */
+            color: white; 
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            min-height: 70px; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .result-box:hover {
@@ -252,13 +252,13 @@
         }
        
          .explanation-box {
-             background-color: #f3f4f6; /* UPDATED: Explanation box background to gray-100 */
-             border: 1px solid #d1d5db;    /* UPDATED: Explanation box border to gray-300 */
+             background-color: #f3f4f6; 
+             border: 1px solid #d1d5db;    
              padding: 0.5rem 0.75rem; 
              margin-top: 0.75rem; 
              border-radius: 0.375rem; 
              font-size: 0.875rem; 
-             color: #111827; /* UPDATED: Explanation box text to dark gray */
+             color: #111827; 
          }
 
          .review-grid-button {
@@ -318,7 +318,7 @@
             .grid-cols-5 { grid-template-columns: repeat(4, minmax(0, 1fr)); } 
             #review-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } 
             .review-grid-button { font-size: 0.8rem; }
-            #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); } 
+            /* #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); } REMOVED to keep 8 columns */
         }
          @media (max-width: 480px) {
              .grid-cols-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } 
@@ -331,12 +331,34 @@
                  padding: 0.25rem 0.5rem;
                  font-size: 0.7rem;
              }
-             .option-label { padding: 0.5rem 0.75rem; font-size: 0.875rem;} /* Ensure options are legible */
+             .option-label { padding: 0.5rem 0.75rem; font-size: 0.875rem;} 
              .review-grid-button { font-size: 0.75rem; }
-             #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); } 
-             .result-box .time-spent { font-size: 1rem; }
-             .result-box .question-num-label { font-size: 0.65rem; }
+             /* #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); } REMOVED to keep 8 columns */
          }
+         /* UPDATED: Media queries for result box text on smaller screens with 8 columns */
+        @media (max-width: 600px) { 
+            #results-grid-container {
+                gap: 0.25rem; /* Further reduce gap for small screens */
+            }
+            .result-box .time-spent {
+                font-size: 0.875rem; /* text-sm */
+            }
+            .result-box .question-num-label {
+                font-size: 0.6rem; 
+            }
+        }
+        @media (max-width: 400px) { 
+            .result-box .time-spent {
+                font-size: 0.75rem; /* text-xs */
+            }
+            .result-box .question-num-label {
+                font-size: 0.5rem; 
+            }
+             .result-box {
+                padding: 0.1rem; /* Minimal padding for very small squares */
+            }
+        }
+
 
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -436,7 +458,8 @@
                  <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Exam Results</h2> </div>
             <div class="bg-blue-50 p-4 rounded-lg mb-6 text-center flex-shrink-0 text-gray-900"> <p class="text-lg font-semibold">Your Score: <span id="score" class="text-gray-900">0</span> / <span id="total-questions-results">16</span></p> <p>Time Taken: <span id="time-taken"></span></p>
             </div>
-            <h3 class="text-xl font-semibold mb-2 flex-shrink-0 text-gray-900">Detailed Results:</h3> <p class="text-sm text-gray-900 mb-4 flex-shrink-0">Click on a question box below to review it.</p> <div id="results-grid-container" class="flex-grow">
+            <h3 class="text-xl font-semibold mb-2 flex-shrink-0 text-gray-900">Detailed Results:</h3> <p class="text-sm text-gray-900 mb-4 flex-shrink-0">Click on a question box below to review it.</p>
+            <div id="results-grid-container">
                 </div>
             <div class="mt-6 flex-shrink-0 border-t pt-4">
                  <div class="mb-4">
