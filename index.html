@@ -19,54 +19,52 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f0f2f5; /* Light background like UCAT */
+            background-color: #ffffff; /* UPDATED: Body background to white */
         }
         #app-container {
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 2rem); /* Full height minus padding */
+            height: calc(100vh - 2rem); 
             width: 100%;
-            background-color: #ffffff;
-            border: 1px solid #d1d5db; /* Border like UCAT */
+            background-color: #ffffff; /* Already white, that's good */
+            border: 1px solid #d1d5db; 
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border-radius: 0.375rem; /* Slightly rounded corners */
-            margin: 1rem; /* Add some margin */
-            overflow: hidden; /* Prevent content overflow from container */
+            border-radius: 0.375rem; 
+            margin: 1rem; 
+            overflow: hidden; 
         }
         /* Header and Footer */
         .header-bar, .footer-bar {
-            flex-shrink: 0; /* Prevent shrinking */
-            background-color: #006DAA; /* Updated background color */
-            color: white; /* Set default text color to white */
-            padding: 0.75rem 1.5rem; /* Padding */
+            flex-shrink: 0; 
+            background-color: #006DAA; 
+            color: white; 
+            padding: 0.75rem 1.5rem; 
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Specific text colors within header/footer */
         .header-bar span, .header-bar div {
              color: white;
         }
         #timer {
-             background-color: rgba(255, 255, 255, 0.2); /* Lighter background for timer */
+             background-color: rgba(255, 255, 255, 0.2); 
              color: white;
              font-weight: bold;
-             padding: 0.25rem 0.75rem; /* Adjusted padding */
-             border-radius: 0.25rem; /* Slightly rounded */
+             padding: 0.25rem 0.75rem; 
+             border-radius: 0.25rem; 
         }
-         /* Footer Button Styling */
         .footer-bar button {
             background-color: transparent;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle white border */
-            padding: 0.4rem 0.8rem; /* Adjust padding */
-            font-size: 0.8rem; /* Adjust font size */
+            border: 1px solid rgba(255, 255, 255, 0.5); 
+            padding: 0.4rem 0.8rem; 
+            font-size: 0.8rem; 
             border-radius: 0.375rem;
              transition: background-color 0.2s ease, border-color 0.2s ease;
         }
         .footer-bar button:hover:not(:disabled) {
-            background-color: rgba(255, 255, 255, 0.15); /* Slight white background on hover */
+            background-color: rgba(255, 255, 255, 0.15); 
             border-color: white;
         }
          .footer-bar button:disabled {
@@ -74,92 +72,81 @@
              cursor: not-allowed;
              border-color: rgba(255, 255, 255, 0.3);
          }
-         /* Keep primary button distinct */
          .footer-bar button#next-button {
-             background-color: #ffffff; /* White background */
-             color: #006DAA; /* Blue text */
+             background-color: #ffffff; 
+             color: #006DAA; 
              border: 1px solid white;
              font-weight: 500;
          }
          .footer-bar button#next-button:hover:not(:disabled) {
-             background-color: #f0f0f0; /* Slightly off-white on hover */
+             background-color: #f0f0f0; 
          }
-         /* Flag button specific style */
          #flag-button {
              background-color: transparent;
              border: 1px solid white;
              color: white;
-             transition: background-color 0.2s ease, color 0.2s ease; /* Add transition */
+             transition: background-color 0.2s ease, color 0.2s ease; 
          }
          #flag-button:hover {
              background-color: white;
              color: #006DAA;
          }
-         /* Style for when a question IS flagged */
           #flag-button.flagged {
-             background-color: #facc15; /* Yellow-400 */
+             background-color: #facc15; 
              border-color: #facc15;
-             color: #422006; /* Dark brown text for contrast */
+             color: #422006; 
           }
           #flag-button.flagged:hover {
-             background-color: #f59e0b; /* Amber-500 */
+             background-color: #f59e0b; 
              border-color: #f59e0b;
           }
 
-
-        /* Main Content Area */
         .main-content-area {
-            flex-grow: 1; /* Take remaining vertical space */
+            flex-grow: 1; 
             display: flex;
-            overflow: hidden; /* Prevent content overflow issues */
-            padding: 1rem; /* Padding around passage/question */
-            gap: 1rem; /* Gap between passage and question */
+            overflow: hidden; 
+            padding: 1rem; 
+            gap: 1rem; 
         }
-        /* Passage and Question Columns */
         .passage-column {
-            flex: 0 0 60%; /* Set passage width to 60% */
-            overflow-y: auto; /* Allow vertical scrolling */
+            flex: 0 0 60%; 
+            overflow-y: auto; 
             padding: 1rem;
             border: 1px solid #e5e7eb;
             border-radius: 0.375rem;
-            background-color: #f9fafb; /* Slight background tint */
-            height: 100%; /* Fill available height */
+            background-color: #ffffff; /* UPDATED: Passage column background to white */
+            height: 100%; 
         }
         .question-column {
-             flex: 0 0 40%; /* Set question width to 40% */
-             overflow-y: auto; /* Allow vertical scrolling */
+             flex: 0 0 40%; 
+             overflow-y: auto; 
              padding: 1rem;
              border: 1px solid #e5e7eb;
              border-radius: 0.375rem;
-             background-color: #f9fafb; /* Slight background tint */
-             height: 100%; /* Fill available height */
-             position: relative; /* Needed for absolute positioning if used later */
+             background-color: #ffffff; /* UPDATED: Question column background to white */
+             height: 100%; 
+             position: relative; 
         }
 
-        /* Style for selected answer */
         .selected-answer {
-            background-color: #bfdbfe !important; /* Tailwind blue-200 - use !important to override hover */
-            border-color: #3b82f6 !important; /* Tailwind blue-500 */
+            background-color: #bfdbfe !important; 
+            border-color: #3b82f6 !important; 
         }
-        /* Style for navigator buttons */
         .nav-answered {
-            background-color: #a7f3d0; /* Tailwind emerald-200 */
+            background-color: #a7f3d0; 
         }
         .nav-current {
-            border: 2px solid #3b82f6 !important; /* Tailwind blue-500 */
+            border: 2px solid #3b82f6 !important; 
             font-weight: bold;
         }
-        /* Style for flagged questions in navigator/review */
         .nav-flagged, .review-flagged {
-            border: 2px solid #f59e0b !important; /* Amber-500 border */
-            position: relative; /* Needed for potential icon positioning */
+            border: 2px solid #f59e0b !important; 
+            position: relative; 
         }
-        /* Modal Styles */
         .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
         .modal-content { background-color: #fefefe; margin: auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 600px; border-radius: 0.5rem; }
         .modal.flex { display: flex; }
 
-        /* General Button Styling (outside footer) */
         button, .button {
             transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
             border-radius: 0.375rem;
@@ -181,30 +168,27 @@
         .subtle-button { background-color: #f3f4f6; color: #374151; border: 1px solid transparent; }
         .subtle-button:hover:not(:disabled) { background-color: #e5e7eb; }
 
-
-        /* Styling for radio button labels to act as buttons */
         .option-label {
             display: block;
             padding: 0.75rem 1rem;
-            border: 1px solid #d1d5db; /* Tailwind gray-300 */
+            border: 1px solid #d1d5db; 
             border-radius: 0.375rem;
             margin-bottom: 0.5rem;
             cursor: pointer;
             transition: background-color 0.2s ease, border-color 0.2s ease;
-            background-color: #ffffff; /* White background for options */
+            background-color: #ffffff; 
+            color: #111827; /* UPDATED: Option text to dark gray */
+            font-size: 1rem;   /* UPDATED: Option text size to base */
         }
-        .option-label:hover:not(.selected-answer) { /* Prevent hover style if selected */
-            background-color: #f3f4f6; /* Tailwind gray-100 */
-            border-color: #a5b4fc; /* Indigo-300 on hover */
+        .option-label:hover:not(.selected-answer) { 
+            background-color: #f3f4f6; 
+            border-color: #a5b4fc; 
         }
-        /* Hide actual radio buttons */
         input[type="radio"] { display: none; }
 
-        /* --- Result Styling --- */
-        /* Result highlighting for list items (kept for PDF or future use) */
        .correct-answer-li { background-color: #dcfce7; border-left: 4px solid #22c55e; }
        .incorrect-answer-li { background-color: #fee2e2; border-left: 4px solid #ef4444; }
-       .result-item-clickable-li { /* Suffix -li to distinguish from new box style */
+       .result-item-clickable-li { 
            cursor: pointer;
            transition: background-color 0.2s ease-in-out;
            border: 1px solid #e5e7eb;
@@ -218,27 +202,26 @@
        .correct-indicator-text { color: #16a34a; font-weight: 600;}
        .incorrect-indicator-text { color: #dc2626; font-weight: 600;}
 
-        /* NEW Result Box Grid Styling */
-        #results-grid-container { /* Container for the new grid */
+        #results-grid-container { 
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsive grid */
-            gap: 1rem; /* Gap between boxes */
-            padding: 1rem 0; /* Padding around the grid */
-            overflow-y: auto; /* Allow scrolling if many items */
-            max-height: 30vh; /* Limit height to encourage scrolling for many items */
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); 
+            gap: 1rem; 
+            padding: 1rem 0; 
+            overflow-y: auto; 
+            max-height: 30vh; 
         }
         .result-box {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem 0.5rem; /* Adjusted padding */
-            border-radius: 0.375rem; /* rounded-md */
-            color: white;
+            padding: 0.75rem 0.5rem; 
+            border-radius: 0.375rem; 
+            color: white; /* Text on result boxes remains white for contrast */
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            min-height: 70px; /* Ensure a minimum height */
+            min-height: 70px; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .result-box:hover {
@@ -246,44 +229,41 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .result-box-correct {
-            background-color: #22c55e; /* Tailwind green-500 */
-            border: 1px solid #16a34a; /* Tailwind green-700 */
+            background-color: #22c55e; 
+            border: 1px solid #16a34a; 
         }
         .result-box-incorrect {
-            background-color: #ef4444; /* Tailwind red-500 */
-            border: 1px solid #dc2626; /* Tailwind red-600 */
+            background-color: #ef4444; 
+            border: 1px solid #dc2626; 
         }
-        .result-box-flagged { /* Optional: style for flagged questions in grid */
-            outline: 2px solid #f59e0b; /* Amber-500 outline */
+        .result-box-flagged { 
+            outline: 2px solid #f59e0b; 
             outline-offset: 2px;
         }
         .result-box .time-spent {
-            font-size: 1.125rem; /* text-lg */
-            font-weight: 600; /* semibold */
+            font-size: 1.125rem; 
+            font-weight: 600; 
             line-height: 1.1;
         }
         .result-box .question-num-label {
-            font-size: 0.75rem; /* text-xs */
-            margin-top: 0.25rem; /* mt-1 */
+            font-size: 0.75rem; 
+            margin-top: 0.25rem; 
             line-height: 1;
         }
-       /* --- END Result Styling --- */
-
-         /* Style for explanation box (used in results and review view) */
+       
          .explanation-box {
-             background-color: #fef3c7; /* Tailwind amber-100 */
-             border: 1px solid #fcd34d; /* Tailwind amber-300 */
-             padding: 0.5rem 0.75rem; /* p-2 equivalent */
-             margin-top: 0.75rem; /* mt-3 */
-             border-radius: 0.375rem; /* rounded-md */
-             font-size: 0.875rem; /* text-sm */
-             color: #78350f; /* Tailwind amber-900 */
+             background-color: #f3f4f6; /* UPDATED: Explanation box background to gray-100 */
+             border: 1px solid #d1d5db;    /* UPDATED: Explanation box border to gray-300 */
+             padding: 0.5rem 0.75rem; 
+             margin-top: 0.75rem; 
+             border-radius: 0.375rem; 
+             font-size: 0.875rem; 
+             color: #111827; /* UPDATED: Explanation box text to dark gray */
          }
 
-         /* Review Grid Button Styles */
          .review-grid-button {
-             padding: 0.5rem 0.25rem; /* Adjust padding */
-             border: 1px solid #d1d5db; /* Default border */
+             padding: 0.5rem 0.25rem; 
+             border: 1px solid #d1d5db; 
              border-radius: 0.375rem;
              text-align: center;
              transition: background-color 0.2s ease, border-color 0.2s ease;
@@ -292,28 +272,26 @@
              cursor: pointer;
          }
          .review-grid-button-answered {
-             background-color: #dcfce7; /* Lighter green */
-             border-color: #86efac; /* Green border */
-             color: #15803d; /* Darker green text */
+             background-color: #dcfce7; 
+             border-color: #86efac; 
+             color: #15803d; 
          }
          .review-grid-button-unanswered {
-             background-color: #f3f4f6; /* Light gray */
-             border-color: #d1d5db; /* Gray border */
-             color: #4b5563; /* Gray text */
+             background-color: #f3f4f6; 
+             border-color: #d1d5db; 
+             color: #4b5563; 
          }
           .review-grid-button:hover {
-             filter: brightness(95%); /* Slightly darken on hover */
+             filter: brightness(95%); 
           }
 
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             #app-container {
-                 height: auto; /* Allow height to adjust */
+                 height: auto; 
                  margin: 0.5rem;
             }
             .main-content-area {
-                flex-direction: column; /* Stack columns */
+                flex-direction: column; 
                 padding: 0.5rem;
                 gap: 0.5rem;
             }
@@ -340,7 +318,7 @@
             .grid-cols-5 { grid-template-columns: repeat(4, minmax(0, 1fr)); } 
             #review-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } 
             .review-grid-button { font-size: 0.8rem; }
-            #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); } /* Adjust grid for smaller screens */
+            #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); } 
         }
          @media (max-width: 480px) {
              .grid-cols-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } 
@@ -353,9 +331,9 @@
                  padding: 0.25rem 0.5rem;
                  font-size: 0.7rem;
              }
-             .option-label { padding: 0.5rem 0.75rem; font-size: 0.8rem;}
+             .option-label { padding: 0.5rem 0.75rem; font-size: 0.875rem;} /* Ensure options are legible */
              .review-grid-button { font-size: 0.75rem; }
-             #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); } /* Further adjust grid */
+             #results-grid-container { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); } 
              .result-box .time-spent { font-size: 1rem; }
              .result-box .question-num-label { font-size: 0.65rem; }
          }
@@ -375,24 +353,18 @@
                      alt="MedwithPurpose Logo"
                      class="mx-auto h-20 w-auto mb-4"
                      onerror="this.style.display='none'; this.onerror=null;">
-                <h1 class="text-2xl md:text-3xl font-bold text-blue-600">UCAT Verbal Reasoning Practice</h1>
-                <p class="text-gray-600 mt-2">Prepare for the UCAT VR section.</p>
-                 <p class="text-sm text-gray-500 mt-4">
-                     This section contains <strong id="setup-question-count">16 questions</strong> and you have <strong id="setup-time-limit">10 minutes</strong> to complete it.
+                <h1 class="text-2xl md:text-3xl font-bold text-gray-900">UCAT Verbal Reasoning Practice</h1> <p class="text-gray-900 mt-2">Prepare for the UCAT VR section.</p> <p class="text-sm text-gray-900 mt-4"> This section contains <strong id="setup-question-count">16 questions</strong> and you have <strong id="setup-time-limit">10 minutes</strong> to complete it.
                  </p>
             </div>
             <div class="space-y-4 w-full max-w-md">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your name">
+                    <label for="name" class="block text-sm font-medium text-gray-900">Name:</label> <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your name">
                 </div>
                 <div>
-                    <label for="goal" class="block text-sm font-medium text-gray-700">Goal (Score out of 16):</label>
-                    <input type="number" id="goal" name="goal" min="0" max="16" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., 12">
+                    <label for="goal" class="block text-sm font-medium text-gray-900">Goal (Score out of 16):</label> <input type="number" id="goal" name="goal" min="0" max="16" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., 12">
                 </div>
                 <div>
-                    <label for="focus-area" class="block text-sm font-medium text-gray-700">Area of Focus / Intention For Practice:</label>
-                    <input type="text" id="focus-area" name="focus-area" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., True/False/Can't Tell, Speed">
+                    <label for="focus-area" class="block text-sm font-medium text-gray-900">Area of Focus / Intention For Practice:</label> <input type="text" id="focus-area" name="focus-area" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="e.g., True/False/Can't Tell, Speed">
                 </div>
             </div>
             <div class="mt-8 text-center">
@@ -416,14 +388,14 @@
 
             <div class="main-content-area">
                 <div class="passage-column">
-                    <h3 class="text-lg font-semibold mb-2 sticky top-0 bg-gray-50 pb-1">Passage <span id="passage-number">1</span></h3>
-                    <div id="passage-text" class="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                    <h3 class="text-lg font-semibold mb-2 sticky top-0 bg-white text-gray-900 pb-1">Passage <span id="passage-number">1</span></h3>
+                    <div id="passage-text" class="text-base text-gray-900 leading-relaxed whitespace-pre-wrap">
                         </div>
                 </div>
 
                 <div class="question-column">
-                    <h4 class="text-md font-semibold mb-3 sticky top-0 bg-gray-50 pb-1">Question <span id="question-number">1</span></h4>
-                    <p id="question-text" class="mb-4 text-gray-800">
+                     <h4 class="text-md font-semibold mb-3 sticky top-0 bg-white text-gray-900 pb-1">Question <span id="question-number">1</span></h4>
+                    <p id="question-text" class="mb-4 text-gray-900 text-base">
                         </p>
                     <div id="options-container" class="space-y-2">
                         </div>
@@ -444,11 +416,9 @@
 
         <div id="review-screen" class="hidden p-6 md:p-8 flex flex-col items-center h-full overflow-y-auto">
              <div class="w-full max-w-3xl mb-4 flex justify-between items-center">
-                 <h2 class="text-2xl font-bold text-blue-600">Review Your Answers</h2>
-                 <button id="filter-flagged-button" class="secondary-button text-sm">Show Flagged Only</button>
+                 <h2 class="text-2xl font-bold text-gray-900">Review Your Answers</h2> <button id="filter-flagged-button" class="secondary-button text-sm">Show Flagged Only</button>
              </div>
-             <p class="text-center text-gray-600 mb-6">Click on a question number to review it. Green indicates answered, Yellow border indicates flagged.</p>
-            <div id="review-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-3 mb-6 w-full max-w-3xl">
+             <p class="text-center text-gray-900 mb-6">Click on a question number to review it. Green indicates answered, Yellow border indicates flagged.</p> <div id="review-grid" class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-10 gap-3 mb-6 w-full max-w-3xl">
                 </div>
             <div class="mt-auto pt-6">
                 <button id="end-exam-button" class="danger-button text-lg px-8 py-3">
@@ -463,24 +433,17 @@
                      alt="MedwithPurpose Logo"
                      class="mx-auto h-16 w-auto mb-4"
                      onerror="this.style.display='none'; this.onerror=null;">
-                 <h2 class="text-2xl md:text-3xl font-bold text-blue-600">Exam Results</h2>
+                 <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Exam Results</h2> </div>
+            <div class="bg-blue-50 p-4 rounded-lg mb-6 text-center flex-shrink-0 text-gray-900"> <p class="text-lg font-semibold">Your Score: <span id="score" class="text-gray-900">0</span> / <span id="total-questions-results">16</span></p> <p>Time Taken: <span id="time-taken"></span></p>
             </div>
-            <div class="bg-blue-50 p-4 rounded-lg mb-6 text-center flex-shrink-0">
-                 <p class="text-lg font-semibold">Your Score: <span id="score" class="text-blue-700">0</span> / <span id="total-questions-results">16</span></p>
-                 <p class="text-gray-600">Time Taken: <span id="time-taken"></span></p>
-            </div>
-            <h3 class="text-xl font-semibold mb-2 flex-shrink-0">Detailed Results:</h3>
-            <p class="text-sm text-gray-500 mb-4 flex-shrink-0">Click on a question box below to review it.</p>
-            <div id="results-grid-container" class="flex-grow">
+            <h3 class="text-xl font-semibold mb-2 flex-shrink-0 text-gray-900">Detailed Results:</h3> <p class="text-sm text-gray-900 mb-4 flex-shrink-0">Click on a question box below to review it.</p> <div id="results-grid-container" class="flex-grow">
                 </div>
             <div class="mt-6 flex-shrink-0 border-t pt-4">
                  <div class="mb-4">
-                    <label for="focus-rating" class="block text-md font-semibold text-gray-700 mb-1">My focus out of 5 (1 very low, 5 very high):</label>
-                    <input type="number" id="focus-rating" name="focus-rating" min="1" max="5" class="mt-1 block w-20 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="1-5">
+                    <label for="focus-rating" class="block text-md font-semibold text-gray-900 mb-1">My focus out of 5 (1 very low, 5 very high):</label> <input type="number" id="focus-rating" name="focus-rating" min="1" max="5" class="mt-1 block w-20 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="1-5">
                  </div>
                  <div>
-                    <label for="reflection-text" class="block text-md font-semibold text-gray-700 mb-1">Main takeaway from this practice:</label>
-                    <textarea id="reflection-text" name="reflection-text" rows="3" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Reflect on your performance, strategies, or areas for improvement..."></textarea>
+                    <label for="reflection-text" class="block text-md font-semibold text-gray-900 mb-1">Main takeaway from this practice:</label> <textarea id="reflection-text" name="reflection-text" rows="3" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Reflect on your performance, strategies, or areas for improvement..."></textarea>
                  </div>
             </div>
              <div class="mt-6 text-center flex-shrink-0 flex justify-center space-x-4">
@@ -496,11 +459,9 @@
         <div id="navigator-modal" class="modal">
             <div class="modal-content bg-white p-6 rounded-lg shadow-xl">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Question Navigator</h3>
-                    <button id="close-modal-button" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
+                    <h3 class="text-xl font-semibold text-gray-900">Question Navigator</h3> <button id="close-modal-button" class="text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
                 </div>
-                 <p class="text-sm text-gray-600 mb-4">Click a number to jump. Green: answered, Yellow border: flagged.</p>
-                <div id="navigator-grid" class="grid grid-cols-5 gap-3">
+                 <p class="text-sm text-gray-900 mb-4">Click a number to jump. Green: answered, Yellow border: flagged.</p> <div id="navigator-grid" class="grid grid-cols-5 gap-3">
                     </div>
             </div>
         </div>
@@ -509,7 +470,6 @@
 
     <script>
         // --- Data ---
-        // Updated Passages from VR Focus Group #15.pdf
         const passages = [
             // Passage 1: The Year Without a Summer
             `The year 1816 is remembered by climatologists and historians alike as "The Year Without a Summer." Unseasonal weather patterns devastated harvests across the Northern Hemisphere, leading to widespread food shortages, price spikes, and civil unrest. Though initially inexplicable, the cause was eventually traced to the 1815 eruption of Mount Tambora in present-day Indonesia-one of the most powerful volcanic eruptions in recorded history. The eruption released vast amounts of sulphur dioxide into the stratosphere, creating a global haze that significantly reduced sunlight and lowered surface temperatures.\nIn North America and parts of Europe, snow fell in June, and frosts persisted into July. Crops failed en masse in countries like Ireland, where the potato crop was hit particularly hard, and in Switzerland, where famine conditions contributed to spikes in mortality. Notably, it was during this enforced indoor confinement at Lake Geneva that Mary Shelley began writing what would become Frankenstein, a detail often cited to show the indirect cultural impact of climatic anomalies.\nThe longer-term consequences of the 1816 disruption are harder to trace but potentially profound. Some economic historians suggest that the subsequent migration waves from Europe to the Americas-particularly between 1817 and 1821-were partly triggered by the lingering economic fallout of that failed agricultural year. Others caution that such inferences may conflate correlation with causation, given the already complex political and social factors at play following the Napoleonic Wars.`,
@@ -521,7 +481,6 @@
             `Tens of thousands of men, women and children have marched across Australian capital cities and regional towns calling for determined action to end gendered and sexual violence.\nAdvocates say the issue was not properly addressed during the federal election campaign, with funding pledges "barely even hitting the sides". The No More: National Rally Against Violence saw attendees gather in Sydney, Melbourne, Brisbane, Perth, Adelaide, Canberra, Hobart and regional centres in between. Organiser Sarah Williams called for more funding, training, and law reform to combat violence.\n"We need to be able to stop it before it starts," she told a 2,000-strong crowd on the steps of Parliament House in Melbourne on Saturday.\n"We need more funding for primary prevention, more trauma-informed response training for police, increased crisis housing, bail law reform and uniform consent laws," she said. "Men listen to men we need more male role models out there," Williams said.\nConsent and healthy relationship education should be expanded to more schools with additional funding, and community sporting clubs and major codes could also play a role in reaching different generations, she said. A total of 128 women have been killed since January 2024, according to the Australian Femicide Watch website. It has also pledged to invest more funding to stop high-risk perpetrators through electronic monitoring.\nBut Moody said ministers and leaders needed to sit down with frontline services to figure out what works.\nSource:https://www.sbs.com.au/news/article/rallies-against-gendered-and-sexual-violence-held-across-australia/rxhvn3han`
         ];
 
-        // Updated Questions (16 total) from VR Focus Group #15.pdf with new explanations
         const questions = [
             { passageIndex: 0, text: "The author would most likely agree that the cultural impact of the 1816 climate anomaly was:", options: ["limited to the region most directly affected by Tambora's eruption.", "one of the few long-lasting effects of the volcanic eruption.", "made possible only because of extreme weather confinement.", "an indirect but noteworthy consequence of environmental disruption."], correctAnswer: "D", explanation: "The passage explicitly mentions Mary Shelley writing Frankenstein during her confinement due to the weather, citing it as an example of 'the indirect cultural impact of climatic anomalies'. This directly supports option D. \nWhy others are incorrect:\nA) limited to the region most directly affected by Tambora's eruption: Incorrect because the cultural impact mentioned (Mary Shelley) occurred in Europe (Lake Geneva), while Tambora is in Indonesia. The passage also mentions widespread effects across the Northern Hemisphere. \nB) one of the few long-lasting effects of the volcanic eruption: Incorrect. The passage states the 'longer-term consequences... are harder to trace but potentially profound' and discusses migration waves as another potential long-term effect, implying there wasn't just one long-lasting effect. \nC) made possible only because of extreme weather confinement: While the confinement was a factor for Mary Shelley, the passage doesn't state this was the only reason or that all cultural impacts were solely due to confinement. It uses Shelley's example as 'a detail often cited to show the indirect cultural impact', suggesting it's an illustration, not an exclusive cause." },
             { passageIndex: 0, text: "Which of the following best describes the author's view on the link between climate events and migration?", options: ["Clear evidence shows that major climate disruptions drive long-term migration trends.", "While the theory is plausible, it remains open to debate due to overlapping historical factors.", "There is little evidence that migration patterns were influenced by environmental causes.", "Most economic historians believe that failed harvests were the sole driver of post-war migration."], correctAnswer: "B", explanation: "The passage states, 'Some economic historians suggest that the subsequent migration waves... were partly triggered by the lingering economic fallout...' but immediately follows with, 'Others caution that such inferences may conflate correlation with causation, given the already complex political and social factors at play...'. This indicates a debate and complexity, aligning with option B. \nWhy others are incorrect:\nA) Clear evidence shows that major climate disruptions drive long-term migration trends: Incorrect because the author presents the link as a suggestion by 'some economic historians' and highlights that 'others caution' against this view due to confounding factors. \nC) There is little evidence that migration patterns were influenced by environmental causes: Incorrect. The passage does present it as a theory ('some economic historians suggest'), so it's not accurate to say there's 'little evidence' discussed. \nD) Most economic historians believe that failed harvests were the sole driver of post-war migration: Incorrect. The passage only says 'some economic historians suggest' the fallout was 'partly triggered' by the agricultural year, not that most believe it was the sole driver. The caution about 'complex political and social factors' also contradicts this." },
@@ -704,7 +663,7 @@
                 const optionId = `q${index}_opt${i}`;
                 const label = document.createElement('label');
                 label.htmlFor = optionId;
-                label.classList.add('option-label');
+                label.classList.add('option-label'); // Styles for this are in CSS, including text color and size
                 label.dataset.optionIndex = i; 
 
                 const radio = document.createElement('input');
@@ -757,7 +716,7 @@
             if (reviewMode && question.explanation) {
                 const explanationDiv = document.createElement('div');
                 explanationDiv.classList.add('explanation-box'); 
-                explanationDiv.innerHTML = `<strong class="font-semibold">Explanation:</strong> ${question.explanation.replace(/\n/g, '<br>')}`; // Replace newlines for HTML
+                explanationDiv.innerHTML = `<strong class="font-semibold">Explanation:</strong> ${question.explanation.replace(/\n/g, '<br>')}`; 
                 reviewExplanationContainer.appendChild(explanationDiv);
             }
             
@@ -984,7 +943,7 @@
             appContainer.classList.add('flex', 'flex-col');
 
             let score = 0;
-            resultsGridContainer.innerHTML = ''; // Clear previous results grid
+            resultsGridContainer.innerHTML = ''; 
 
             questions.forEach((qData, index) => {
                 const userAnswer = userAnswers[index];
@@ -995,7 +954,6 @@
                 const timeSpentMs = questionTimes[index] || 0; 
                 const timeSpentSec = Math.round(timeSpentMs / 1000);
 
-                // Create the result box
                 const resultBox = document.createElement('div');
                 resultBox.classList.add('result-box');
                 resultBox.classList.add(isCorrect ? 'result-box-correct' : 'result-box-incorrect');
@@ -1005,13 +963,11 @@
                 resultBox.dataset.index = index; 
                 resultBox.title = `Click to review Question ${index + 1}`;
 
-                // Time spent display
                 const timeDiv = document.createElement('div');
                 timeDiv.classList.add('time-spent');
                 timeDiv.textContent = `${timeSpentSec}s`;
                 resultBox.appendChild(timeDiv);
 
-                // Question number display
                 const qNumDiv = document.createElement('div');
                 qNumDiv.classList.add('question-num-label');
                 qNumDiv.textContent = `Q${index + 1}`;
@@ -1149,7 +1105,7 @@
                 });
 
                 if (qData.explanation) {
-                    const explLines = doc.splitTextToSize(`  Explanation: ${qData.explanation.replace(/\n/g, ' ')}`, pageWidth - (margin * 2.5)); // Replace newlines for PDF
+                    const explLines = doc.splitTextToSize(`  Explanation: ${qData.explanation.replace(/\n/g, ' ')}`, pageWidth - (margin * 2.5)); 
                     explLines.forEach(explLine => {
                          if (y > pageHeight - margin - lineHeight) { doc.addPage(); y = margin; }
                          doc.text(explLine, margin + 5, y); 
