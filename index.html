@@ -204,28 +204,35 @@
 
         #results-grid-container { 
             display: grid;
-            grid-template-columns: repeat(8, 1fr); /* UPDATED: Enforce 8 columns */
-            gap: 0.5rem; /* UPDATED: Adjusted gap */
-            padding: 1rem 0; 
+            grid-template-columns: repeat(8, 1fr); /* 8 columns */
+            grid-template-rows: repeat(2, 1fr); /* 2 rows */
+            gap: 0.75rem; /* Balanced spacing between boxes */
+            padding: 1.5rem 0; 
             overflow-y: auto; 
-            /* max-height: 30vh; REMOVED: Allow grid to define its own height for 2 rows */
+            max-width: 850px; /* Optimal width for the grid */
+            margin: 0 auto; /* Center the grid */
         }
         .result-box {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            aspect-ratio: 1 / 1; /* UPDATED: Make boxes square */
-            padding: 0.25rem; /* UPDATED: Adjusted padding */
-            border-radius: 0.375rem; 
+            aspect-ratio: 1 / 1; /* Keep boxes square */
+            padding: 0.35rem; /* Balanced padding */
+            border-radius: 0.375rem;
             color: white; 
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 0.4rem;
+            /* Reset size modifications */
+            width: 100%;
+            height: auto;
+            transform: none;
         }
         .result-box:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px); /* Simple hover effect */
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         .result-box-correct {
@@ -241,16 +248,37 @@
             outline-offset: 2px;
         }
         .result-box .time-spent {
-            font-size: 1.125rem; 
+            font-size: 0.95rem; /* Balanced font size */
             font-weight: 600; 
             line-height: 1.1;
         }
-        .result-box .question-num-label {
-            font-size: 0.75rem; 
-            margin-top: 0.25rem; 
-            line-height: 1;
+        .question-num-label {
+            font-size: 0.7rem; /* Balanced font size */
+            color: #374151;
+            text-align: center;
+            width: 100%;
+            margin-top: 0.25rem;
         }
-       
+        
+        /* Media queries for responsive grid */
+        @media (max-width: 768px) {
+            #results-grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+                grid-template-rows: repeat(4, 1fr); /* 4 rows on medium screens */
+                max-width: 95%;
+                gap: 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            #results-grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+                grid-template-rows: repeat(8, 1fr); /* 8 rows on small screens */
+                gap: 0.4rem;
+            }
+            .result-box .time-spent {
+                font-size: 0.85rem;
+            }
+        }
          .explanation-box {
              background-color: #f3f4f6; 
              border: 1px solid #d1d5db;    
@@ -991,15 +1019,21 @@
                 timeDiv.textContent = `${timeSpentSec}s`;
                 resultBox.appendChild(timeDiv);
 
+                const container = document.createElement('div');
+                container.style.display = 'flex';
+                container.style.flexDirection = 'column';
+                container.style.alignItems = 'center';
+                container.appendChild(resultBox);
+
                 const qNumDiv = document.createElement('div');
                 qNumDiv.classList.add('question-num-label');
                 qNumDiv.textContent = `Q${index + 1}`;
-                resultBox.appendChild(qNumDiv);
+                container.appendChild(qNumDiv);
                 
-                resultBox.addEventListener('click', () => {
+                container.addEventListener('click', () => {
                     revisitQuestionFromResults(index);
                 });
-                resultsGridContainer.appendChild(resultBox);
+                resultsGridContainer.appendChild(container);
             });
 
             scoreEl.textContent = score;
